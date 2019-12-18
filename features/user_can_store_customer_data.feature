@@ -14,8 +14,8 @@ Feature: User can store customer data
   Scenario: Can create a new customer
     Then I should see "Your customers"
     And I click on "Add new customer"
-    And I fill in "Company name" with "Craft Academy AB"
-    And I fill in "Organization number" with "559078-2248"
+    And I fill in "Name" with "Craft Academy AB"
+    And I fill in "Organisation number" with "559078-2248"
     And I fill in "Address" with "Valhallavägen 79"
     And I fill in "Postcode" with "11428"
     And I fill in "City" with "Stockholm"
