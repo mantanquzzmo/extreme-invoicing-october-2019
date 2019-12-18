@@ -12,10 +12,12 @@ class CustomersController < ApplicationController
       redirect_to invoices_path, notice: 'Customer was succesfully added.'
     else
       redirect_to request.referer, notice: 'Please fill in the form correctly.'
-      end
+    end
   end
 
+  private
+
   def customer_params
-    params.require(:customer).permit(:name, :organisation_number, :address, :postcode, :city)
+    params.require(:customer).permit(:name, :organisation_number, :address, :postcode, :city).merge(user_id: current_user.id)
   end
 end
