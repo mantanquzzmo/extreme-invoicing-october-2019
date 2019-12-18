@@ -1,0 +1,13 @@
+<%= form_with model: @customer do |form| %>
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name %>
+    <%= form.label :organization_number %>
+    <%= form.text_field :organization_number %>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+    <%= form.label :postcode %>
+    <%= form.text_field :postcode %>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+    <%= form.submit "Add customer" %>
+<% end %>
