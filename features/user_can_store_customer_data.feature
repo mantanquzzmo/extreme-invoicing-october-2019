@@ -39,7 +39,7 @@ Feature: User can store customer data
     And I click on "Add customer"
     Then I should see "Please fill in the form correctly."
 
-  Scenario: User can not see customers created by another user
+  Scenario: User can see customers created by itself
     Given I am logged in as "user@user.com"
     And I am on the index page
     Then I should see "Company"
