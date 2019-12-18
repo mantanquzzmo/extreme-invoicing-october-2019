@@ -4,14 +4,18 @@ Feature: User can store customer data
   I would like to store my customers information
 
   Background:
-    Given the following user exist
-      | email         | password |
-      | user@user.com | password |
+    Given the following users exist
+      | email          | password |
+      | user@user.com  | password |
+      | user2@user.com | password |
 
-    And I am logged in as "user@user.com"
-    And I am on the index page
+    Given the following customers exist
+      | name    | organisation_number | address  | postcode | city     | user          |
+      | Company | 123456-7890         | Street 1 | 12345    | Cityname | user@user.com |
 
   Scenario: Can create a new customer
+    Given I am logged in as "user@user.com"
+    And I am on the index page
     When I click on "Add new customer"
     And I fill in "Name" with "Craft Academy AB"
     And I fill in "Organisation number" with "559078-2248"
@@ -24,6 +28,8 @@ Feature: User can store customer data
     And I should see "559078-2248"
 
   Scenario: Add customer form not filled out correctly
+    Given I am logged in as "user@user.com"
+    And I am on the index page
     When I click on "Add new customer"
     And I fill in "Name" with "Craft Academy AB"
     And I fill in "Organisation number" with "559078-2248"
@@ -33,5 +39,14 @@ Feature: User can store customer data
     And I click on "Add customer"
     Then I should see "Please fill in the form correctly."
 
+  Scenario: User can not see customers created by another user
+    Given I am logged in as "user@user.com"
+    And I am on the index page
+    Then I should see "Company"
+    And I should see "123456-7890"
 
+  Scenario: User can not see customers created by another user
+    Given I am logged in as "user2@user.com"
+    And I am on the index page
+    Then I should not see "Company"
 

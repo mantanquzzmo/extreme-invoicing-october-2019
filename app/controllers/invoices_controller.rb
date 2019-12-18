@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
   
   def index
     @invoices = Invoice.all
-    @customers = Customer.all
+    @customers = current_user.customers
   end
 
   def new
