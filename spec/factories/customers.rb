@@ -5,5 +5,6 @@ FactoryBot.define do
     address { "MyString" }
     postcode { 12345 }
     city { "MyString" }
+    user
   end
 end
