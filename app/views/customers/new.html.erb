@@ -2,11 +2,11 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
     <%= form.label :organisation_number %>
-    <%= form.text_field :organisation_number %>
+    <%= form.text_field :organisation_number, placeholder: "123456-7890" %>
     <%= form.label :address %>
     <%= form.text_field :address %>
     <%= form.label :postcode %>
-    <%= form.text_field :postcode %>
+    <%= form.text_field :postcode, placeholder: "12345" %>
     <%= form.label :city %>
     <%= form.text_field :city %>
     <%= form.submit "Add customer" %>

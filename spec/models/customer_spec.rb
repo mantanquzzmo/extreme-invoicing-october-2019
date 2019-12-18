@@ -11,6 +11,14 @@ RSpec.describe Customer, type: :model do
     it { is_expected.to have_db_column :city }
   end
 
+  describe 'Validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_length_of :organisation_number }
+    it { is_expected.to validate_presence_of :address }
+    it { is_expected.to validate_length_of :postcode }
+    it { is_expected.to validate_presence_of :city }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:customer)).to be_valid
