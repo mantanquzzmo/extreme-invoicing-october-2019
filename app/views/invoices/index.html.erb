@@ -1,6 +1,5 @@
-<%= link_to 'Create new invoice', new_invoice_path, remote: true %>
-
 <h2>Your invoices</h2>
+<%= link_to 'Create new invoice', new_invoice_path, remote: true %>
 <% @invoices.each do |invoice| %>
   <ul>
     Invoice number: <%= invoice.id %>
@@ -8,6 +7,15 @@
     Invoice due date: <%= invoice.due_date %>
   </ul>
 <% end %>
+
 <h2>Your customers</h2>
 <%= link_to 'Add new customer', new_customer_path %>
-
+<% @customers.each do |customer| %>
+  <ul>
+    Company name: <%= customer.name %>
+    Organisation number: <%= customer.organisation_number %>
+    Address: <%= customer.address %>
+    Postcode: <%= customer.postcode %>
+    City: <%= customer.city %>
+  </ul>
+<% end %>
