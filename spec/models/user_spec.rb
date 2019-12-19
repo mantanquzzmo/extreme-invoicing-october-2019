@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many :invoices }
     it { is_expected.to have_one :company }
+    it { is_expected.to have_many :customers }
   end
 
   describe 'Factory' do

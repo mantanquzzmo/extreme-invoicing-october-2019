@@ -18,3 +18,11 @@ Given("the following company exist") do |table|
     create(:company, company_attrs.except!(:user).merge(user: user))
   end
 end
+
+Given('the following customer(s) exist') do |table|
+  table.hashes.each do |customer_attrs|
+    user = User.find_by(email: customer_attrs['user'])
+    customer_attrs.except('user')
+    create(:customer, customer_attrs.merge(user: user))
+  end
+end
