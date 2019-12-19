@@ -3,36 +3,31 @@ Feature: User can store its company data
   In order to avoid repetitive input
   I would like to store data about my company
 
-  Background: 
+  Background:
     Given the following user exist
-      | email         | password |
-      | user@user.com | password |
+      | name   | user                   |
+      | Google | google_exec@google.com |
 
-    And I am logged in as "user@user.com"  
-    And I am on the index page
-    
   Scenario: Visitor can save his company information
+    Given I am logged in as "user@user.com"  
+    And I am on the index page
     When I click on "Company Profile"
-    Then I should be on the Company Profile page
-    And I should see "Name"
-    And I fill in "Name" with "Bob"
+    And I fill in "Name" with "Craft Academy"
     And I click on "Update profile"
     Then I should be on the Invoices page
     And I should see "Company information added."
 
-
   Scenario: Company Name must be filled in
+    Given I am logged in as "user@user.com"
+    And I am on the index page
     When I click on "Company Profile"
-    Then I should be on the Company Profile page
+    And I fill in "Name" with " "
     And I click on "Update profile"
     Then I should see "Something went wrong. Company Name is required."
 
+
   Scenario: User can view saved company information
+    Given I am logged in as "google_exec@google.com"  
+    And I am on the index page
     When I click on "Company Profile"
-    Then I should be on the Company Profile page
-    And I fill in "Name" with "Bob"
-    And I click on "Update profile"
-    Then I should be on the Invoices page
-    And I click on "Company Profile"
-    Then I should be on the companies page
-    And I should see "Bob"
+    And I should see "Google" 

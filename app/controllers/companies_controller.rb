@@ -1,14 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
-  
-  def index
-    company = current_user.company
-    if company == nil
-      redirect_to new_company_path
-    else
-      redirect_to company_path(Company.ids)
-    end
-  end
+  before_action :check_user_company, only: :new
+
 
   def new
     @company = Company.new
@@ -25,10 +18,16 @@ class CompaniesController < ApplicationController
   end 
 
   def show
-    @company = current_user.company
+    @company = Company.find(params[:id])
   end
 
   private
+  def check_user_company
+    if current_user.company.present?
+      redirect_to company_path(current_user.company), notice: 'You have already added your company information'
+    end
+  end
+  
   def company_params
     params.require(:company).permit(:name, :identification_no, :vat_no, :address, :postcode, :city, :phone).merge(:user_id => current_user[:id])
   end
