@@ -22,7 +22,6 @@ class CompaniesController < ApplicationController
 
   private
   def check_user_company
-    binding.pry
     if current_user.company.present?
       redirect_to company_path(current_user.company), notice: 'You have already added your company information'
     end
