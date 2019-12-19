@@ -9,6 +9,11 @@ end
 Then("I should not see {string}") do |content|
   expect(page).not_to have_content content
 end
-Then("I fill in {string} with {string}") do |input, content|
-  fill_in input, with: content
+
+Then("I should be on the Company Profile page") do
+  expect(current_path).to eq company_path(@user.company.id)
 end
+
+Then("I should be on the Invoices page") do
+  expect(current_path).to eq invoices_path
+end 
