@@ -9,9 +9,9 @@ Feature: User can store customer data
       | user@user.com  | password |
       | user2@user.com | password |
 
-    Given the following customers exist
+    And the following customers exist
       | name    | organisation_number | address  | postcode | city     | user          |
-      | Company | 123456-7890         | Street 1 | 12345    | Cityname | user@user.com |
+      | ACME AB | 123456-7890         | Street 1 | 12345    | Cityname | user@user.com |
 
   Scenario: Can create a new customer
     Given I am logged in as "user@user.com"
@@ -42,11 +42,11 @@ Feature: User can store customer data
   Scenario: User can see customers created by itself
     Given I am logged in as "user@user.com"
     And I am on the index page
-    Then I should see "Company"
+    Then I should see "ACME AB"
     And I should see "123456-7890"
 
   Scenario: User can not see customers created by another user
     Given I am logged in as "user2@user.com"
     And I am on the index page
-    Then I should not see "Company"
+    Then I should not see "ACME AB"
 
