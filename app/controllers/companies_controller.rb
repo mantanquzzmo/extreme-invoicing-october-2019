@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
     if company.persisted?
       redirect_to invoices_path, notice: "Company information added."
     else
-      redirect_to new_company_path, notice: "Something went wrong. Company Name is required."
+      redirect_to new_company_path, notice: "Something went wrong. #{company.errors.full_messages.to_sentence}"
     end
   end 
 
