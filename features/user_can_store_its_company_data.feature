@@ -30,7 +30,7 @@ Feature: User can store its company data
     Given I am logged in as "google_exec@google.com"  
     And I am on the index page
     When I click on "Company Profile"
-    And I should see "Google" 
+    Then I should see "Google" 
 
   Scenario: User cant save company info is he has already done it
     Given I am logged in as "google_exec@google.com"
