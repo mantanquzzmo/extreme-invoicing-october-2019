@@ -4,6 +4,7 @@ class InvoicesController < ApplicationController
   def index
     @invoices = Invoice.all
     @customers = current_user.customers
+    @articles = current_user.articles
   end
 
   def new

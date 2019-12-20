@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :invoices
   has_one :company
   has_many :customers
+  has_many :articles
 end

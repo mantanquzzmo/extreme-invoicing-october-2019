@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :customers, only: [:create, :new]
   root controller: :landing, action: :index
   resources :companies, only: [:create, :show, :new]
+  resources :articles, only: [:create, :new, :show]
 end
 

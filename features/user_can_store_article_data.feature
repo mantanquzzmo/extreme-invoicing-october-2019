@@ -16,7 +16,7 @@ Feature: User can store article data
     And I fill in "Name" with "Consulting hours"
     And I fill in "Unit" with "h"
     And I fill in "Unit price" with "600"
-    And I fill in "VAT" with "25"
-    And I click on "Add customer"
+    And I fill in "Taxrate" with "25"
+    And I click on "Add article"
     Then I should be on the invoices page
     And I should see "Consulting hours"
