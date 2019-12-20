@@ -1,6 +1,5 @@
 class InvoicePolicy < ApplicationPolicy
-  
-  class Scope < Scope
+  class Scope 
     def resolve
       scope.all
     end

@@ -29,7 +29,8 @@ end
 
 Given("the following invoices exist") do |table|
   table.hashes.each do |invoice_attrs|
-    create(:invoice, invoice_attrs.merge(user: @user))
+    user = User.find_by(email: invoice_attrs[:user]) || create(:user, email: invoice_attrs[:user])
+    create(:invoice, invoice_attrs.merge(user: user))
   end
 end
 

@@ -1,6 +1,6 @@
 Feature: Invoices has to be paid to be viewed
   As a company
-  In order to get paid 
+  In order to get paid
   I must restrict access to invoices
 
   Background:
@@ -8,13 +8,12 @@ Feature: Invoices has to be paid to be viewed
       | email         | password |
       | user@user.com | password |
 
+    And the following invoices exist
+      | id | date       | due_date             | paid_for | user          |
+      | 1  | Date.today | Date.today + 30.days | true     | user@user.com |
+      | 2  | Date.today | Date.today + 30.days | false    | user@user.com |
+
     And I am logged in as "user@user.com"
-
-    Given the following invoices exist
-      | id | date       | due_date             | paid_for |
-      | 1  | Date.today | Date.today + 30.days | true     |
-      | 2  | Date.today | Date.today + 30.days | false    |
-
     And I am on the invoices page
 
   Scenario: Payed for invoices can be viewed
