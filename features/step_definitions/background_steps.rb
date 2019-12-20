@@ -26,3 +26,11 @@ Given('the following customer(s) exist') do |table|
     create(:customer, customer_attrs.merge(user: user))
   end
 end
+
+Given('the following article(s) exist') do |table|
+  table.hashes.each do |article_attrs|
+    user = User.find_by(email: article_attrs['user'])
+    article_attrs.except('user')
+    create(:article, article_attrs.merge(user: user))
+  end
+end
