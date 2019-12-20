@@ -26,7 +26,7 @@ Feature: User can store article data
     And I should see "Article was succesfully created."
     And I should see "Consulting hours"
 
-  Scenario: Add new articleis  form not filled out correctly
+  Scenario: Add new article form is not filled out correctly
     Given I am logged in as "user@user.com"
     And I am on the index page
     When I click on "Add new article"
@@ -39,7 +39,7 @@ Feature: User can store article data
     And I am on the index page
     Then I should see "Mackerel"
 
-  Scenario: User can not see customers created by another user
+  Scenario: User can not see articles created by another user
     Given I am logged in as "user2@user.com"
     And I am on the index page
     Then I should not see "Mackerel"
