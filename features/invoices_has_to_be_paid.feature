@@ -1,7 +1,7 @@
-Feature: User can pay to see invoice (part 1)
-  As a user
-  In order to receive my created invoice
-  I would need to perform a payment
+Feature: Invoices has to be paid to be viewed
+  As a company
+  In order to get paid 
+  I must restrict access to invoices
 
   Background:
     Given the following user exist
