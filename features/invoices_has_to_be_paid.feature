@@ -20,7 +20,6 @@ Feature: Invoices has to be paid to be viewed
   Scenario: Payed for invoices can be viewed
     When I click on "View invoice 1"
     Then I should see "Invoice no: 1"
-    And I should see "Welcome to download!"
 
   Scenario: User can not see unpayed invoice
     When I click on "View invoice 2"
