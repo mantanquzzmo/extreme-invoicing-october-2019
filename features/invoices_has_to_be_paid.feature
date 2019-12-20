@@ -15,7 +15,6 @@ Feature: Invoices has to be paid to be viewed
       | 1  | Date.today | Date.today + 30.days | true     |
       | 2  | Date.today | Date.today + 30.days | false    |
 
-    And an invoice has been created
     And I am on the invoices page
 
   Scenario: Payed for invoices can be viewed

@@ -27,12 +27,16 @@ Given('the following customer(s) exist') do |table|
   end
 end
 
-Given("an invoice has been created") do
-  invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: @user)
-end
-
 Given("the following invoices exist") do |table|
   table.hashes.each do |invoice_attrs|
     create(:invoice, invoice_attrs.merge(user: @user))
+  end
+end
+
+Given('the following article(s) exist') do |table|
+  table.hashes.each do |article_attrs|
+    user = User.find_by(email: article_attrs['user'])
+    article_attrs.except('user')
+    create(:article, article_attrs.merge(user: user))
   end
 end
