@@ -29,5 +29,4 @@ end
 
 Given("an invoice has been created") do
   invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: @user)
-  binding.pry
 end
