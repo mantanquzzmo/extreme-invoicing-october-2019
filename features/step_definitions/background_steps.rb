@@ -26,3 +26,8 @@ Given('the following customer(s) exist') do |table|
     create(:customer, customer_attrs.merge(user: user))
   end
 end
+
+Given("an invoice has been created") do
+  invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: @user)
+  binding.pry
+end
