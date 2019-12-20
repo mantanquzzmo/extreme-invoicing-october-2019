@@ -30,3 +30,9 @@ end
 Given("an invoice has been created") do
   invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: @user)
 end
+
+Given("the following invoices exist") do |table|
+  table.hashes.each do |invoice_attrs|
+    create(:invoice, invoice_attrs.merge(user: @user))
+  end
+end

@@ -7,6 +7,6 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def show?
-    binding.pry
+    record.paid_for?
   end
 end

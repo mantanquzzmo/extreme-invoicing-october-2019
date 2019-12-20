@@ -5,7 +5,7 @@
     Invoice number: <%= invoice.id %>
     Invoice date: <%= invoice.date %>
     Invoice due date: <%= invoice.due_date %>
-    <%= link_to 'View invoice', invoice_path(invoice.id) %>
+    <%= link_to "View invoice #{invoice.id}", invoice_path(invoice.id) %>
   </ul>
 <% end %>
 
