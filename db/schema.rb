@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_101419) do
+ActiveRecord::Schema.define(version: 2019_12_20_104910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_101419) do
     t.float "subtotal"
     t.float "tax"
     t.float "total"
-    t.boolean "paid_for"
+    t.boolean "paid_for", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
