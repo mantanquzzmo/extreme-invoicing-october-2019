@@ -5,11 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def invoice_not_paid_for(exception)
-    if exception.policy.class == InvoicePolicy && exception.query == "show?"
+  def invoice_not_paid_for
     redirect_to invoices_path, notice: "You have to pay for this invoice before you can view it"
-    else 
-    redirect_to invoice_path(params[:id]), notice: "Welcome to download!"
-    end
   end
 end
