@@ -4,6 +4,6 @@ FactoryBot.define do
     unit { "MyString" }
     unit_price { 1.5 }
     taxrate { 1.5 }
-    user { nil }
+    user
   end
 end

@@ -18,5 +18,5 @@ Feature: User can store article data
     And I fill in "Unit price" with "600"
     And I fill in "Taxrate" with "25"
     And I click on "Add article"
-    Then I should be on the invoices page
+    And I should see "Article was succesfully created."
     And I should see "Consulting hours"
