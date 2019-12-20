@@ -5,13 +5,18 @@ Feature: User can store article data
 
   Background:
     Given the following users exist
-      | email         | password |
-      | user@user.com | password |
+      | email          | password |
+      | user@user.com  | password |
+      | user2@user.com | password |
 
-    And I am logged in as "user@user.com"
-    And I am on the index page
+    And the following article exist
+      | name     | unit | unit_price | taxrate | user          |
+      | Mackerel | kg   | 138        | 25      | user@user.com |
+
 
   Scenario: User can add a new article to his articles database
+    Given I am logged in as "user@user.com"
+    And I am on the index page
     When I click on "Add new article"
     And I fill in "Name" with "Consulting hours"
     And I fill in "Unit" with "h"
@@ -20,3 +25,21 @@ Feature: User can store article data
     And I click on "Add article"
     And I should see "Article was succesfully created."
     And I should see "Consulting hours"
+
+  Scenario: Add new articleis  form not filled out correctly
+    Given I am logged in as "user@user.com"
+    And I am on the index page
+    When I click on "Add new article"
+    And I fill in "Name" with "Cod"
+    And I click on "Add article"
+    Then I should see "Please fill in the form correctly."
+
+  Scenario: User can only see articles created by itself
+    Given I am logged in as "user@user.com"
+    And I am on the index page
+    Then I should see "Mackerel"
+
+  Scenario: User can not see customers created by another user
+    Given I am logged in as "user2@user.com"
+    And I am on the index page
+    Then I should not see "Mackerel"
