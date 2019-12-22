@@ -18,6 +18,3 @@ Then("I should be on the Invoices page") do
   expect(current_path).to eq invoices_path
 end 
 
-Then("I should be on the payment page") do
-  expect(current_path).to eq new_payment_path
-end
