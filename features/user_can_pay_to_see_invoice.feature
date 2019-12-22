@@ -1,3 +1,4 @@
+@javascript
 Feature: User can pay to receive invoice
   As a user
   In order to receive my created invoice
